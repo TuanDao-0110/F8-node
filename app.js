@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-morgan('dev')
-
-// app.use(morgan)
+app.use(morgan('tiny'))
 
 app.get('/', (req, res) => {
     let a = 2
