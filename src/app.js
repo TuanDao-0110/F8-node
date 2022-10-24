@@ -8,7 +8,7 @@ const morgan = require('morgan')
 app.use(morgan('common'))
 
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.resolve(__dirname,'public')))
 
 console.log(path.join(__dirname, './public'))
 // use express-handlebars
@@ -23,9 +23,9 @@ app.all('/', (req, res) => {
 app.all('/news', (req, res) => {
     res.render('new');
 })
-// app.all('/public',(req,res)=> { 
-//     res.sendFile(path.resolve(__dirname,'./public/index.html'))
-// })
+app.all('/public',(req,res)=> { 
+    res.sendFile(path.resolve(__dirname,'./public/index.html'))
+})
 
 app.listen(3000, () => {
     console.log("listening port 3000 ....")
