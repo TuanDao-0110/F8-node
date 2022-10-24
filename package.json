@@ -2,11 +2,11 @@
   "name": "node_js",
   "version": "1.0.0",
   "description": "node tutorial on F8.",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start_db": "nodemon --inspect app.js",
-    "start": "nodemon  app.js"
+    "start_db": "nodemon --inspect src/app.js",
+    "start": "nodemon  src/app.js"
   },
   "repository": {
     "type": "git",
