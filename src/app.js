@@ -5,16 +5,27 @@ const path = require('path')
 const hbs = require('express-handlebars')
 // import morgan vs use morgan HTTP logger
 const morgan = require('morgan')
-app.use(morgan('tiny'))
+app.use(morgan('common'))
+
+
+app.use(express.static(path.join(__dirname,'public')))
+
+console.log(path.join(__dirname, './public'))
 // use express-handlebars
 
-app.use(express.static('../public'))
-app.get('/', (req, res) => {
-    // res.sendFile(path.resolve(__dirname, './resources/public/index.html'))
+app.engine('.hbs', hbs.engine({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
+app.set('views', path.resolve(__dirname, 'resources/views'));
+
+app.all('/', (req, res) => {
+    res.render('home');
 })
-app.all('*', (req, res) => {
-    res.status(404).send('resource not found')
+app.all('/news', (req, res) => {
+    res.render('new');
 })
+// app.all('/public',(req,res)=> { 
+//     res.sendFile(path.resolve(__dirname,'./public/index.html'))
+// })
 
 app.listen(3000, () => {
     console.log("listening port 3000 ....")
