@@ -21,6 +21,7 @@
   "homepage": "https://github.com/TuanDao-0110/F8-node#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
     "morgan": "^1.10.0"
   }
 }
